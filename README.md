@@ -76,9 +76,16 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 
 ##<t id="pull-up"/>Pull-up Resistor Circuit
 
-#### TODO
+A **Pull-up Resistor** is a circuit used to prevent a unknown state when nothing is connected to input pin.
+
+![Diode Bridge Circuit](pull-up/schematic.png)
+
+When the *S1* button is off, a bit of current flows from V<sub>cc</sub> to the *Input Pin*, so when your program read the state of the pin it will be **high**. If the button are pressed, the current flows from V<sub>cc</sub> to GND through the resistor *R1*, so the state of the pin it will be **low**.
+
+**Be careful!** If the *R1* was not here, when you push button *S1* V<sub>cc</sub> is directly connected to GND so there are a short.
 
 ### Links
+ - [Pull-up Resistors Circuit](pull-up/)
  - [Pull-up Resistors Tutorial](https://learn.sparkfun.com/tutorials/pull-up-resistors)
 
 ##<t id="rs232_to_serial"/>RS232 to Serial Circuit
