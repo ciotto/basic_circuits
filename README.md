@@ -17,7 +17,7 @@ Is the smallest circut used to power a LED (Light Emitting Diode)
 
 ![LED Circuit](led/schematic.png)
 
-The *R1* resistor depends on the V<sub>CC</sub> voltage and on the LED type. For e 3mm LED at 5 VDC, for example, this are the rounded values:
+The *R1* resistor depends on the V<sub>cc</sub> voltage and on the LED type. For e 3mm LED at 5 VDC, for example, this are the rounded values:
 
 Size | Color  | Forward current | Foward voltage | Resistor 
 ---- | ------ | --------------- | -------------- | --------
@@ -29,7 +29,7 @@ Size | Color  | Forward current | Foward voltage | Resistor
 
 In general, the formul is:
 
- **R = (V<sub>CC</sub> - V<sub>L</sub>) / I<sub>L</sub>**
+ **R = (V<sub>cc</sub> - V<sub>L</sub>) / I<sub>L</sub>**
 
 ### Links
  - [Eagle project](led/)
@@ -43,23 +43,31 @@ This is a example that allow you to indicate the locical value in a line.
 
 *LED1* indicate the **1** logic state, *LED2* indicate the **0** logic state.
 
-This is possible because a LED is a diode, so it allow the current flow only from positive to negative. When the line is at V<sub>CC</sub>, *LED1* allow current flow so it's on and *LED2* is off. Vice versa, when the line is at GND, *LED2* don't allow current flow so it's off and *LED2* is on. 
+This is possible because a LED is a diode, so it allow the current flow only from positive to negative. When the line is at V<sub>cc</sub>, *LED1* allow current flow so it's on and *LED2* is off. Vice versa, when the line is at GND, *LED2* don't allow current flow so it's off and *LED2* is on. 
 
 ### Links
  - [Eagle project](led_indicator/)
 
 ##<t id="power"/>Power Circuit
 
-#### TODO
+The standard **voltage regulator** is a component that allow us to get a normalized current and voltage. Every voltage regulator have a specific max Vin level and in order to get clean power, the datasheets recommends to using a **capacitor**.
 
 ![Power Circuit](power/schematic.png)
+
+In this circuit I added a **12V diode** in order to perform a simple reverse polarity and overvoltage protection.
 
 ### Links
  - [Diode Bridge Circuit](power/)
 
 ##<t id="diode_bridge"/>Diode Bridge Circuit
 
-#### TODO
+A **Diode Bridge** is a circuit that provides the same polarity of output for either polarity of input and it's made by **4 diode**.
+
+![Diode Bridge Circuit](diode_bridge/schematic_no_capacitor.png)
+
+If the *V1* supply is positive, current flows through *D3* to V<sub>cc</sub> and flows to *V2* through *D2*. Vice versa, if the *V1* supply is negative, current flows through *D4* to V<sub>cc</sub> and flows to *V1* through *D1*.
+
+The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it allow us to convert an **AC** input into a **DC** output, for this porpuse, the addition of a capacitor is recomanded in order to prevent an output of pulsed DC.
 
 ![Diode Bridge Circuit](diode_bridge/schematic.png)
 

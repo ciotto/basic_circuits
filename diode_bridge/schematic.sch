@@ -197,6 +197,34 @@ general purpose rectifier, 1 A</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="docu-dummy">
+<description>Dummy symbols</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="CAPACITOR">
+<wire x1="0" y1="-5.08" x2="0" y2="-2.032" width="0.1524" layer="94"/>
+<wire x1="0" y1="-0.508" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<rectangle x1="-2.032" y1="-2.032" x2="2.032" y2="-1.524" layer="94"/>
+<rectangle x1="-2.032" y1="-1.016" x2="2.032" y2="-0.508" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="C" prefix="C">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="CAPACITOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -213,6 +241,7 @@ general purpose rectifier, 1 A</description>
 <part name="D4" library="diode" deviceset="1N4004" device="" value=""/>
 <part name="SUPPLY3" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="VCC" device=""/>
+<part name="C1" library="docu-dummy" deviceset="C" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -223,21 +252,14 @@ general purpose rectifier, 1 A</description>
 <instance part="D2" gate="1" x="33.02" y="53.34"/>
 <instance part="D3" gate="1" x="33.02" y="68.58"/>
 <instance part="D4" gate="1" x="40.64" y="60.96" rot="R90"/>
-<instance part="SUPPLY3" gate="GND" x="53.34" y="48.26" rot="R90"/>
-<instance part="SUPPLY4" gate="G$1" x="53.34" y="68.58" rot="R270"/>
+<instance part="SUPPLY3" gate="GND" x="71.12" y="48.26" rot="R90"/>
+<instance part="SUPPLY4" gate="G$1" x="71.12" y="68.58" rot="R270"/>
+<instance part="C1" gate="G$1" x="55.88" y="60.96"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="V+/-" class="0">
-<segment>
-<pinref part="D1" gate="1" pin="C"/>
-<wire x1="25.4" y1="63.5" x2="25.4" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="D3" gate="1" pin="A"/>
-<wire x1="25.4" y1="68.58" x2="30.48" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="68.58" x2="5.08" y2="68.58" width="0.1524" layer="91"/>
-<label x="7.62" y="68.58" size="1.778" layer="95"/>
-</segment>
+<net name="V2+/-" class="0">
 <segment>
 <pinref part="D4" gate="1" pin="A"/>
 <wire x1="40.64" y1="58.42" x2="40.64" y2="53.34" width="0.1524" layer="91"/>
@@ -254,9 +276,11 @@ general purpose rectifier, 1 A</description>
 <wire x1="30.48" y1="53.34" x2="25.4" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="D1" gate="1" pin="A"/>
 <wire x1="25.4" y1="53.34" x2="25.4" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="48.26" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="48.26" x2="25.4" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="48.26" x2="25.4" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="SUPPLY3" gate="GND" pin="GND"/>
+<wire x1="55.88" y1="55.88" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -265,8 +289,20 @@ general purpose rectifier, 1 A</description>
 <pinref part="D4" gate="1" pin="C"/>
 <wire x1="35.56" y1="68.58" x2="40.64" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="68.58" x2="40.64" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="40.64" y1="68.58" x2="50.8" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="68.58" x2="55.88" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="G$1" pin="VCC"/>
+<wire x1="55.88" y1="68.58" x2="68.58" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="68.58" x2="55.88" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="V1+/-" class="0">
+<segment>
+<pinref part="D1" gate="1" pin="C"/>
+<wire x1="25.4" y1="63.5" x2="25.4" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="D3" gate="1" pin="A"/>
+<wire x1="25.4" y1="68.58" x2="30.48" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="68.58" x2="5.08" y2="68.58" width="0.1524" layer="91"/>
+<label x="7.62" y="68.58" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
