@@ -1,6 +1,10 @@
 # Basic circuits
-A collection of simple and basic circuits
 
+A collection of simple and basic circuits.
+
+###### Available circuits
+
+- [Resistors Circuit](#resistors)
 - [LED Circuit](#led)
 - [LED Indicator Circuit](#led_indicator)
 - [Power Circuit](#power)
@@ -10,6 +14,21 @@ A collection of simple and basic circuits
 - [USB to Serial Circuit](#usb_to_serial)
 - [Basic Stamp 2](#bs2)
 - [Arduino](#arduino)
+
+
+##<t id="resistors"/>Resistors Circuit
+
+
+
+#### TODO
+
+ - parallel and series
+
+### Color Code
+
+The colored bands over the resistors indicate their resistance, using this table you can find the value:
+
+![Color Code Table](http://www.digikey.com/-/media/Images/Marketing/Resources/Calculators/resistor-color-chart.jpg?la=en-US&ts=72364a89-2139-476a-8a54-8d78dacd29ff)
 
 ##<t id="led"/>LED Circuit
 
