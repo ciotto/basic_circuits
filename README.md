@@ -183,6 +183,24 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 
 #### TODO
 
+### Links
+
+ - [ubicom_v2.lib](http://arlotto.univ-tln.fr/ressources/docs/kicad/converted/ubicom_v2.lib)
+ - [ubicom_v2.mod](http://arlotto.univ-tln.fr/ressources/docs/kicad/converted/ubicom_v2.mod)
+
+
 ##<t id="arduino"/> Arduino
 
 #### TODO
+
+### Links
+ - [Il manuale di Arduino](http://www.prometheusnow.com/blog/wp-content/uploads/2014/11/Il-manuale-di-Arduino-Maik-Schmidt.pdf)
+
+# Links
+
+- [The Master's notes](http://electronics-notes.readthedocs.org/en/latest/)
+- [BusPirate Python Oscilloscope](http://dangerousprototypes.com/docs/Bus_Pirate:_Python_Oscilloscope)
+- [Seeed Studio PCB Service](http://www.seeedstudio.com/service/index.php?r=pcb)
+- [Low Cost Components](www.aliexpress.com/category/502/electronic-components-supplies.html)
+- [Adrirobot](http://www.adrirobot.it/)
+I
