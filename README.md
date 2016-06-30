@@ -6,6 +6,7 @@ A collection of simple and basic circuits.
 
 - [Resistors Circuit](#resistors)
 - [LED Circuit](#led)
+- [Capacitors Circuit](#capacitors)
 - [LED Indicator Circuit](#led_indicator)
 - [Power Circuit](#power)
 - [Diode Bridge Circuit](#diode_bridge)
@@ -54,6 +55,56 @@ In general, the formul is:
  - [Eagle project](led/)
  - [LED Resistor Calculator](http://www.ohmslawcalculator.com/led-resistor-calculator)
 
+
+##<t id="capacitors"/>Capacitors Circuit
+
+### Code
+
+The code over the capacitors indicate their capacitance, using this table you can find the value:
+
+ 1st 2nd number | 3rd number | Multiply with 
+----------------|-----------|---------------
+ xx  | 0 | 1
+ xx  | 1 | 10
+ xx  | 2 | 100
+ xx  | 3 | 1,000
+ xx  | 4 | 10,000
+ xx  | 5 | 100,000
+ xx  | 6 | 1,000,000
+ xx  | 7 | Not used
+ xx  | 8 | 0.01
+ xx  | 9 | 0.1
+ xRx | / | 0.1
+
+In general, the first two digit are the value, the 3rd is the multiplier and the letter is for tollerance. The very small capacitors can have an **R** between the first and second digits, this means that there is a point (ex. *2R2 = 2.2pF*).
+
+In the most case, on a capacitor, there are also the max supported voltage (ex. *500V*)
+
+Normally, on the electrolytic capacitors, there are the capacitance and the max voltage wrote in the clear form.
+
+If there is a letter after the code, it represents the tollerance:
+
+ Letter | Tolerance
+--------|----------
+ D | 0.5pF
+ F | 1%
+ G | 2%
+ H | 3%
+ J | 5%
+ K | 10%
+ M | 20%
+ P | +100% / -0%
+ Z | +80% / -20%
+
+
+#### TODO
+
+ - parallel and series
+ - charge
+ - discarge
+ - oscilloscope
+ 
+
 ##<t id="led_indicator"/>LED Indicator Circuit
 
 This is a example that allow you to indicate the locical value in a line.
@@ -62,10 +113,11 @@ This is a example that allow you to indicate the locical value in a line.
 
 *LED1* indicate the **1** logic state, *LED2* indicate the **0** logic state.
 
-This is possible because a LED is a diode, so it allow the current flow only from positive to negative. When the line is at V<sub>cc</sub>, *LED1* allow current flow so it's on and *LED2* is off. Vice versa, when the line is at GND, *LED2* don't allow current flow so it's off and *LED2* is on. 
+This is possible because a LED is a diode, so it allow the current flow only from positive to negative. When the line is at V<sub>cc</sub>, *LED1* allow current flow so it's on and *LED2* is off. Vice versa, when the line is at GND, *LED2* don't allow current flow so it's off and *LED2* is on.
 
 ### Links
  - [Eagle project](led_indicator/)
+
 
 ##<t id="power"/>Power Circuit
 
