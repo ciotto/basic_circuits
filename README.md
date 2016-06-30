@@ -166,13 +166,18 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 ### Links
  - [Shift Oscillator](http://www.circuitstoday.com/transistor-phase-shift-oscillator)
 
-##<t id="rs232_to_serial"/>RS232 to Serial Circuit
+##<t id="rs232_to_serial"/>BS2 RS232 to Serial Circuit
 
-#### TODO
+
+### Links
+ - [BS2 RS232 to Serial Circuit](rs232_to_serial/)
+ - [Adrirobot](http://www.adrirobot.it/menu_new/index/index_parallax.htm)
+
 
 ##<t id="usb_to_serial"/>USB to Serial Circuit
 
 #### TODO
+
 
 ##<t id="bs2"/>Basic Stamp 2
 
