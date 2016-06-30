@@ -11,7 +11,7 @@ A collection of simple and basic circuits.
 - [LED Indicator Circuit](#led_indicator)
 - [Power Circuit](#power)
 - [Diode Bridge Circuit](#diode_bridge)
-- [Pull-up Resistor Circuit](#pull-up)
+- [Pull-up/pull-down Resistor Circuit](#pull-up-down)
 - [RS232 to Serial Circuit](#rs232_to_serial)
 - [USB to Serial Circuit](#usb_to_serial)
 - [Basic Stamp 2](#bs2)
@@ -153,19 +153,18 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 ### Links
  - [Diode Bridge Circuit](diode_bridge/)
 
-##<t id="pull-up"/>Pull-up Resistor Circuit
 
-A **Pull-up Resistor** is a circuit used to prevent a unknown state when nothing is connected to input pin.
+##<t id="pull-up-down"/>Pull-up/pull-down Resistor Circuit
 
-![Diode Bridge Circuit](pull-up/schematic.png)
+#### TODO
 
-When the *S1* button is off, a bit of current flows from V<sub>cc</sub> to the *Input Pin*, so when your program read the state of the pin it will be **high**. If the button are pressed, the current flows from V<sub>cc</sub> to GND through the resistor *R1*, so the state of the pin it will be **low**.
 
-**Be careful!** If the *R1* was not here, when you push button *S1* V<sub>cc</sub> is directly connected to GND so there are a short.
+##<t id="oscillator"/>Oscillator Circuit
+
+###TODO
 
 ### Links
- - [Pull-up Resistors Circuit](pull-up/)
- - [Pull-up Resistors Tutorial](https://learn.sparkfun.com/tutorials/pull-up-resistors)
+ - [Shift Oscillator](http://www.circuitstoday.com/transistor-phase-shift-oscillator)
 
 ##<t id="rs232_to_serial"/>RS232 to Serial Circuit
 
