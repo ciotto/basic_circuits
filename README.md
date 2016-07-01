@@ -20,11 +20,35 @@ A collection of simple and basic circuits.
 
 ##<t id="resistors"/>Resistors Circuit
 
+###### Resistor in parallel:
 
+**R<sub>tot</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub> ... + 1/R<sub>n</sub>)**
 
-#### TODO
+###### Resistor in series:
 
- - parallel and series
+**R<sub>tot</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> ... + R<sub>n</sub>**
+
+###### First Ohms law:
+**I = V / R** or **V = R \* I** or **R = V / I**
+
+![LED Circuit](resistors/schematic.png)
+
+###### Ex.:
+ - *R<sub>1</sub> = 110ohm*
+ - *R<sub>2</sub> = 330ohm*
+ - *R<sub>3</sub> = 220ohm*
+ - *V<sub>cc</sub> = 12V*
+
+The total resistance of the circuit is **R<sub>tot</sub> = R<sub>1</sub> + R<sub>2-3</sub> = 110 + 132 = 242ohm** where **R<sub>2-3</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub>) = 1 / (1/330 + 1/220) = 132ohm**
+
+The current on the circuit is **I = V / R<sub>tot</sub> = 12 / 242 = 0.05A = 50mA**
+
+The voltage between *A* and *B* is **V<sub>A-B</sub> = R<sub>1</sub> \* I = 110 \* 0.05 = 5.5V**
+
+The voltage between *B* and *C* is **V<sub>B-C</sub> = R<sub>2-3</sub> \* I = 132 \* 0.05 = 6.6V**
+
+So, **V = V<sub>A-B</sub> + V<sub>B-C</sub> = 5.5 + 6.6 = 12.1V**
+
 
 ### Color Code
 
@@ -32,13 +56,14 @@ The colored bands over the resistors indicate their resistance, using this table
 
 ![Color Code Table](http://www.digikey.com/-/media/Images/Marketing/Resources/Calculators/resistor-color-chart.jpg?la=en-US&ts=72364a89-2139-476a-8a54-8d78dacd29ff)
 
+
 ##<t id="led"/>LED Circuit
 
 Is the smallest circut used to power a LED (Light Emitting Diode)
 
 ![LED Circuit](led/schematic.png)
 
-The *R1* resistor depends on the V<sub>cc</sub> voltage and on the LED type. For e 3mm LED at 5 VDC, for example, this are the rounded values:
+The *R1* resistor depends on the *V<sub>cc</sub>* voltage and on the LED type. For e *3mm LED* at *5 V<sub>DC</sub>*, for example, this are the rounded values:
 
 Size | Color  | Forward current | Foward voltage | Resistor 
 ---- | ------ | --------------- | -------------- | --------
