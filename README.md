@@ -24,16 +24,21 @@ A collection of simple and basic circuits.
 
 **R<sub>tot</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub> ... + 1/R<sub>n</sub>)**
 
+
 ###### Resistor in series:
 
 **R<sub>tot</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> ... + R<sub>n</sub>**
 
-###### First Ohms law:
-**I = V / R** or **V = R \* I** or **R = V / I**
 
-![LED Circuit](resistors/schematic.png)
+###### First Ohms law:
+**I = V/R** or **V = RI** or **R = V/I**
+
+
+![Resistors Circuit](resistors/schematic.png)
+
 
 ###### Ex.:
+
  - *R<sub>1</sub> = 110ohm*
  - *R<sub>2</sub> = 330ohm*
  - *R<sub>3</sub> = 220ohm*
@@ -50,7 +55,7 @@ The voltage between *B* and *C* is **V<sub>B-C</sub> = R<sub>2-3</sub> \* I = 13
 So, **V = V<sub>A-B</sub> + V<sub>B-C</sub> = 5.5 + 6.6 = 12.1V**
 
 
-### Color Code
+### Resistors Color Code
 
 The colored bands over the resistors indicate their resistance, using this table you can find the value:
 
@@ -89,7 +94,7 @@ In general, the formul is:
 The code over the capacitors indicate their capacitance, using this table you can find the value:
 
  1st 2nd number | 3rd number | Multiply with 
-----------------|-----------|---------------
+----------------|------------|---------------
  xx  | 0 | 1
  xx  | 1 | 10
  xx  | 2 | 100
@@ -104,11 +109,15 @@ The code over the capacitors indicate their capacitance, using this table you ca
 
 In general, the first two digit are the value, the 3rd is the multiplier and the letter is for tollerance. The very small capacitors can have an **R** between the first and second digits, this means that there is a point (ex. *2R2 = 2.2pF*).
 
-In the most case, on a capacitor, there are also the max supported voltage (ex. *500V*)
+In other case, the value wrote above capacitor is in micro-farad (es. **.33**) or with specified multiplier (es. **330n**).
 
-Normally, on the electrolytic capacitors, there are the capacitance and the max voltage wrote in the clear form.
+ Value | Type 1 |  Type 2 |  Type 3 
+-------|--------|---------|---------
+ 100nF | 101 | 100n | .1
+ 120nF | 124 | 120n | .12
+ 150nF | 154 | 150n | .15
 
-If there is a letter after the code, it represents the tollerance:
+If there is a uppercase letter after the code, it represents the tollerance (ex. **.33K**):
 
  Letter | Tolerance
 --------|----------
@@ -121,14 +130,23 @@ If there is a letter after the code, it represents the tollerance:
  M | 20%
  P | +100% / -0%
  Z | +80% / -20%
+ 
+If there is a number after the tollerance, it represents the voltage (ex. **.33K63**).
+
+Normally, on the electrolytic capacitors, there are the capacitance and the max voltage wrote in the clear form.
 
 
 #### TODO
 
  - parallel and series
+ - bypass and decoupling
  - charge
  - discarge
  - oscilloscope
+ - RC and filters
+
+### Links
+ - [Eagle project](capacitors/)
  
 
 ##<t id="button"/>Button Circuit
