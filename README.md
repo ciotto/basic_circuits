@@ -14,8 +14,10 @@ A collection of simple and basic circuits.
 - [Pull-up/pull-down Resistor Circuit](#pull-up-down)
 - [RS232 to Serial Circuit](#rs232_to_serial)
 - [USB to Serial Circuit](#usb_to_serial)
-- [Basic Stamp 2](#bs2)
-- [Arduino](#arduino)
+- [Basic Stamp 2](bs2/README.md)
+- [Arduino](arduino/README.md)
+- [Devices UART](uart/README.md)
+- [Links](#links)
 
 
 ##<t id="resistors"/>Resistors Circuit
@@ -183,6 +185,8 @@ In this circuit I added a **12V diode** in order to perform a simple reverse pol
 
 ##<t id="diode_bridge"/>Diode Bridge Circuit
 
+###### Zener Diode
+
 A **Diode Bridge** is a circuit that provides the same polarity of output for either polarity of input and it's made by **4 diode**.
 
 ![Diode Bridge Circuit](diode_bridge/schematic_no_capacitor.png)
@@ -209,11 +213,16 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 ### Links
  - [Shift Oscillator](http://www.circuitstoday.com/transistor-phase-shift-oscillator)
 
-##<t id="rs232_to_serial"/>BS2 RS232 to Serial Circuit
+##<t id="rs232_to_serial"/>RS232 to Serial Circuit
 
+### With MAX232
+
+![Schematic](RS232_to_serial/max232.png)
+
+### With transistors
 
 ### Links
- - [BS2 RS232 to Serial Circuit](rs232_to_serial/)
+ - [RS232_to_serial](RS232_to_serial/)
  - [Adrirobot](http://www.adrirobot.it/menu_new/index/index_parallax.htm)
 
 
@@ -222,28 +231,11 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 #### TODO
 
 
-##<t id="bs2"/>Basic Stamp 2
+##<t id="links"/> Links
 
-#### TODO
-
-### Links
-
- - [ubicom_v2.lib](http://arlotto.univ-tln.fr/ressources/docs/kicad/converted/ubicom_v2.lib)
- - [ubicom_v2.mod](http://arlotto.univ-tln.fr/ressources/docs/kicad/converted/ubicom_v2.mod)
-
-
-##<t id="arduino"/> Arduino
-
-#### TODO
-
-### Links
- - [Il manuale di Arduino](http://www.prometheusnow.com/blog/wp-content/uploads/2014/11/Il-manuale-di-Arduino-Maik-Schmidt.pdf)
-
-# Links
-
+- [LED Matrix display](http://www.instructables.com/id/Arduino-LED-Scrolling-Text-Simple-Easy/step3/Testing/)
 - [The Master's notes](http://electronics-notes.readthedocs.org/en/latest/)
 - [BusPirate Python Oscilloscope](http://dangerousprototypes.com/docs/Bus_Pirate:_Python_Oscilloscope)
 - [Seeed Studio PCB Service](http://www.seeedstudio.com/service/index.php?r=pcb)
 - [Low Cost Components](www.aliexpress.com/category/502/electronic-components-supplies.html)
 - [Adrirobot](http://www.adrirobot.it/)
-I
