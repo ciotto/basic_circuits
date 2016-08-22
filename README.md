@@ -2,21 +2,33 @@
 
 A collection of simple and basic circuits.
 
-###### Available circuits
+<t style="color: red">WARNING!!</t> This repo is a collection of note and tests, is not always trusted.
+
+###### Base circuits
 
 - [Resistors Circuit](#resistors)
 - [LED Circuit](#led)
 - [Capacitors Circuit](#capacitors)
+- [Transistors Circuit](#transistors)
 - [Button Circuit](#button)
 - [LED Indicator Circuit](#led_indicator)
+
+###### Utilities circuits
+
 - [Power Circuit](#power)
 - [Diode Bridge Circuit](#diode_bridge)
 - [Pull-up/pull-down Resistor Circuit](#pull-up-down)
+- [Level up/down Circuit](#level-up-down)
+
+###### Advanced circuits
+
 - [RS232 to Serial Circuit](#rs232_to_serial)
 - [USB to Serial Circuit](#usb_to_serial)
 - [Basic Stamp 2](bs2/README.md)
 - [Arduino](arduino/README.md)
 - [Devices UART](uart/README.md)
+
+###### Other
 - [Links](#links)
 
 
@@ -85,9 +97,24 @@ In general, the formul is:
  **R = (V<sub>cc</sub> - V<sub>L</sub>) / I<sub>L</sub>**
 
 ### Links
+
  - [Eagle project](led/)
  - [LED Resistor Calculator](http://www.ohmslawcalculator.com/led-resistor-calculator)
 
+
+##<t id="transistors"/>Transistor Circuit
+
+##### TODO
+
+ - Switch
+ - Not, and, or
+ - H-Bridge
+ - Oscillators
+ - Amplifiers
+
+### Links
+
+- [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 ##<t id="capacitors"/>Capacitors Circuit
 
@@ -202,6 +229,11 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 
 
 ##<t id="pull-up-down"/>Pull-up/pull-down Resistor Circuit
+
+#### TODO
+
+
+##<t id="level-up-down"/>Level up/down Circuit
 
 #### TODO
 
