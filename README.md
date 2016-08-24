@@ -6,30 +6,33 @@ A collection of simple and basic circuits.
 
 ###### Base circuits
 
-- [Resistors Circuit](#resistors)
-- [LED Circuit](#led)
-- [Capacitors Circuit](#capacitors)
-- [Transistors Circuit](#transistors)
-- [Button Circuit](#button)
-- [LED Indicator Circuit](#led_indicator)
+ - [Resistors Circuit](#resistors)
+ - [LED Circuit](#led)
+ - [Capacitors Circuit](#capacitors)
+ - [Button Circuit](#button)
+ - [LED Indicator Circuit](#led_indicator)
 
 ###### Utilities circuits
 
-- [Power Circuit](#power)
-- [Diode Bridge Circuit](#diode_bridge)
-- [Pull-up/pull-down Resistor Circuit](#pull-up-down)
-- [Level up/down Circuit](#level-up-down)
+ - [Power Circuit](#power)
+ - [Switch Circuit](#switch)
+ - [Digital Logic Circuits](#digital_logic)
+ - [H-Bridge Circuits](#h-bridge)
+ - [Diode Bridge Circuit](#diode_bridge)
+ - [Pull-up/pull-down Resistor Circuit](#pull-up-down)
+ - [Level up/down Circuit (Amplifier)](#level-up-down)
 
 ###### Advanced circuits
 
-- [RS232 to Serial Circuit](#rs232_to_serial)
-- [USB to Serial Circuit](#usb_to_serial)
-- [Basic Stamp 2](bs2/README.md)
-- [Arduino](arduino/README.md)
-- [Devices UART](uart/README.md)
+ - [RS232 to Serial Circuit](#rs232_to_serial)
+ - [USB to Serial Circuit](#usb_to_serial)
+ - [Basic Stamp 2](bs2/README.md)
+ - [Arduino](arduino/README.md)
+ - [Devices UART](uart/README.md)
 
 ###### Other
-- [Links](#links)
+
+ - [Links](#links)
 
 
 ##<t id="resistors"/>Resistors Circuit
@@ -101,20 +104,6 @@ In general, the formul is:
  - [Eagle project](led/)
  - [LED Resistor Calculator](http://www.ohmslawcalculator.com/led-resistor-calculator)
 
-
-##<t id="transistors"/>Transistor Circuit
-
-##### TODO
-
- - Switch
- - Not, and, or
- - H-Bridge
- - Oscillators
- - Amplifiers
-
-### Links
-
-- [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 ##<t id="capacitors"/>Capacitors Circuit
 
@@ -210,6 +199,68 @@ In this circuit I added a **12V diode** in order to perform a simple reverse pol
 ### Links
  - [Diode Bridge Circuit](power/)
 
+
+##<t id="switch"/>Switch Circuit
+
+A good utilities in the electronics experiments is the switch, that allow us to pilot a device.
+
+![Switch Circuit](switch/schematic.png)
+
+The first version of switch is called *low-side switch* because the transistor are in the low side of the circuit. The second one is called *high-side switch* for the same reson.
+
+The switch can be used for pilot higher voltage devices (according to the transistor specification) like a *motor*.
+
+### Transistors
+
+The transistor is a semiconductor device very used in eletronic. They have two base use case:
+
+ - interrupt a signal (switch)
+ - aplifing a signal
+
+
+#### Types
+
+There are many transistor type that have different caratteristic:
+
+ - *Bipolar junction transistor* (**BJT**), most used in analog circuits because of their greater linearity and ease of manufacture
+ - *Field-effect transistor* (**FET**), most used in digital circuit
+
+All the type can be *P-channel* (**PNP**) or *N-channel* (**NPN**).
+
+Transistor have *3* pad called *emitter* (**E**), *base* (**B**) and *collector* (**C**).
+
+![PNP and NPN](transistor/schematic.png)
+
+On the **NPN** transistor (in the simbol arrow Not Point iN :-) ) the main current flows from **C** (*+*) to **E** (*-*) and the controlling current flows from **B** (*+*) to **E** (*-*).
+
+Conversely, on the **PNP** transistor (in the simbol arrow Point In) the main current flows from **E** (*-*) to **C** (*+*) and the controlling current flows from **E** (*-*) to **B** (*+*).
+
+**I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub>**
+
+Is good to remember that the real electron flow is opposit of theoretical current flow.
+
+
+### Links
+
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
+
+
+##<t id="digital_logic"/>Digital Logic Circuits
+
+A
+
+### Links
+
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
+
+
+##<t id="h-bridge"/>H-Bridge Circuit
+
+### Links
+
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)ù
+
+
 ##<t id="diode_bridge"/>Diode Bridge Circuit
 
 ###### Zener Diode
@@ -233,16 +284,21 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 #### TODO
 
 
-##<t id="level-up-down"/>Level up/down Circuit
+##<t id="level-up-down"/>Level up/down Circuit (Amplifier)
 
 #### TODO
 
+### Links
+
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 ##<t id="oscillator"/>Oscillator Circuit
 
-###TODO
+####TODO
 
 ### Links
+
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
  - [Shift Oscillator](http://www.circuitstoday.com/transistor-phase-shift-oscillator)
 
 ##<t id="rs232_to_serial"/>RS232 to Serial Circuit
