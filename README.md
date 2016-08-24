@@ -247,7 +247,15 @@ Is good to remember that the real electron flow is opposit of theoretical curren
 
 ##<t id="digital_logic"/>Digital Logic Circuits
 
-A
+Another interesting use of the transistors is to do a digital logic operation.
+
+![Digital Logic Circuits](digital_logic/schematic.png)
+
+The first schema represent a **NOT** gate, if *A* is at *V<sub>CC</sub>* the output is at *GND* and vice-versa.
+
+The second schema represent a 2-input **AND** gate, if *A* and *B* are at *V<sub>CC</sub>* the output is at *V<sub>CC</sub>*, *GND* otherwise.
+
+The last one represent a 2-input **OR** gate, if *A* or *B* are at *V<sub>CC</sub>* the output is at *V<sub>CC</sub>*, *GND* otherwise.
 
 ### Links
 
