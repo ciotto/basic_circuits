@@ -264,9 +264,28 @@ The last one represent a 2-input **OR** gate, if *A* or *B* are at *V<sub>CC</su
 
 ##<t id="h-bridge"/>H-Bridge Circuit
 
+In orther to pilot a DC motor an H-bridge is required.
+
+![H-Bridge Circuit](h-bridge/schematic.png)
+
+The *H-Bridge* take his name from the form of his schema.
+
+If *INA* and and *INB* are both at the same voltage, *OUTA* and *OUTB* will be at the same voltage, so the motor won’t be able to spin.
+
+ Input A | Input B | Output A | Output B | Motor Direction
+---------|---------|----------|----------|-----------------
+0 | 0 | 1 | 1 | Stopped (braking)
+0 | 1 | 1 | 0 | Clockwise
+1 | 0 | 0 | 1 | Counter-clockwise
+1 | 1 | 0 | 0 | Stopped (braking)
+
+A well designed H-bridge must to be more complex.
+
+Usually, a *IC* (es. **L293**) is used instead a homemade H-bridge.
+
 ### Links
 
- - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)ù
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors) 
 
 
 ##<t id="diode_bridge"/>Diode Bridge Circuit
