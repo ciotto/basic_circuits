@@ -6,26 +6,26 @@ A collection of simple and basic circuits.
 
 ###### Base circuits
 
- - [Resistors Circuit](#resistors)
- - [LED Circuit](#led)
- - [Capacitors Circuit](#capacitors)
- - [Button Circuit](#button)
- - [LED Indicator Circuit](#led_indicator)
+ - [Resistors Circuit](#resistors-circuit)
+ - [LED Circuit](#led-circuit)
+ - [Capacitors Circuit](#capacitors-circuit)
+ - [Button Circuit](#button-circuit)
+ - [LED Indicator Circuit](#led-indicator-circuit)
 
 ###### Utilities circuits
 
- - [Power Circuit](#power)
- - [Switch Circuit](#switch)
- - [Digital Logic Circuits](#digital_logic)
- - [H-Bridge Circuits](#h-bridge)
- - [Diode Bridge Circuit](#diode_bridge)
- - [Pull-up/pull-down Resistor Circuit](#pull-up-down)
- - [Level up/down Circuit (Amplifier)](#level-up-down)
+ - [Power Circuit](#power-circuit)
+ - [Switch Circuit](#switch-circuit)
+ - [Digital Logic Circuits](#digital-logic-circuits)
+ - [H-Bridge Circuits](#h-bridge-circuit)
+ - [Diode Bridge Circuit](#diode-bridge-circuit)
+ - [Pull-up/pull-down Resistor Circuit](#pull-uppull-down-resistor-circuit)
+ - [Level up/down Circuit (Amplifier)](#level-updown-circuit-amplifier)
 
 ###### Advanced circuits
 
- - [RS232 to Serial Circuit](#rs232_to_serial)
- - [USB to Serial Circuit](#usb_to_serial)
+ - [RS232 to Serial Circuit](#rs232-to-serial-circuit)
+ - [USB to Serial Circuit](#usb-to-serial-circuit)
  - [Basic Stamp 2](bs2/README.md)
  - [Arduino](arduino/README.md)
  - [Devices UART](uart/README.md)
@@ -35,7 +35,7 @@ A collection of simple and basic circuits.
  - [Links](#links)
 
 
-##<t id="resistors"/>Resistors Circuit
+## Resistors Circuit
 
 ###### Resistor in parallel:
 
@@ -79,7 +79,7 @@ The colored bands over the resistors indicate their resistance, using this table
 ![Color Code Table](http://www.digikey.com/-/media/Images/Marketing/Resources/Calculators/resistor-color-chart.jpg?la=en-US&ts=72364a89-2139-476a-8a54-8d78dacd29ff)
 
 
-##<t id="led"/>LED Circuit
+## LED Circuit
 
 Is the smallest circut used to power a LED (Light Emitting Diode)
 
@@ -105,7 +105,7 @@ In general, the formul is:
  - [LED Resistor Calculator](http://www.ohmslawcalculator.com/led-resistor-calculator)
 
 
-##<t id="capacitors"/>Capacitors Circuit
+## Capacitors Circuit
 
 ### Code
 
@@ -167,14 +167,14 @@ Normally, on the electrolytic capacitors, there are the capacitance and the max 
  - [Eagle project](capacitors/)
  
 
-##<t id="button"/>Button Circuit
+## Button Circuit
 
 #### TODO
 
  - oscilloscope
 
 
-##<t id="led_indicator"/>LED Indicator Circuit
+## LED Indicator Circuit
 
 This is a example that allow you to indicate the locical value in a line.
 
@@ -188,7 +188,7 @@ This is possible because a LED is a diode, so it allow the current flow only fro
  - [Eagle project](led_indicator/)
 
 
-##<t id="power"/>Power Circuit
+## Power Circuit
 
 The standard **voltage regulator** is a component that allow us to get a normalized current and voltage. Every voltage regulator have a specific max Vin level and in order to get clean power, the datasheets recommends to using a **capacitor**.
 
@@ -200,7 +200,7 @@ In this circuit I added a **12V diode** in order to perform a simple reverse pol
  - [Diode Bridge Circuit](power/)
 
 
-##<t id="switch"/>Switch Circuit
+## Switch Circuit
 
 A good utilities in the electronics experiments is the switch, that allow us to pilot a device.
 
@@ -245,7 +245,7 @@ Is good to remember that the real electron flow is opposit of theoretical curren
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 
-##<t id="digital_logic"/>Digital Logic Circuits
+## Digital Logic Circuits
 
 Another interesting use of the transistors is to do a digital logic operation.
 
@@ -262,7 +262,7 @@ The last one represent a 2-input **OR** gate, if *A* or *B* are at *V<sub>CC</su
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 
-##<t id="h-bridge"/>H-Bridge Circuit
+## H-Bridge Circuit
 
 In orther to pilot a DC motor an H-bridge is required.
 
@@ -288,7 +288,7 @@ Usually, a *IC* (es. **L293**) is used instead a homemade H-bridge.
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors) 
 
 
-##<t id="diode_bridge"/>Diode Bridge Circuit
+## Diode Bridge Circuit
 
 ###### Zener Diode
 
@@ -306,12 +306,12 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
  - [Diode Bridge Circuit](diode_bridge/)
 
 
-##<t id="pull-up-down"/>Pull-up/pull-down Resistor Circuit
+## Pull-up/pull-down Resistor Circuit
 
 #### TODO
 
 
-##<t id="level-up-down"/>Level up/down Circuit (Amplifier)
+## Level up/down Circuit (Amplifier)
 
 #### TODO
 
@@ -319,7 +319,7 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
-##<t id="oscillator"/>Oscillator Circuit
+## Oscillator Circuit
 
 ####TODO
 
@@ -328,7 +328,7 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
  - [Shift Oscillator](http://www.circuitstoday.com/transistor-phase-shift-oscillator)
 
-##<t id="rs232_to_serial"/>RS232 to Serial Circuit
+## RS232 to Serial Circuit
 
 ### With MAX232
 
@@ -341,12 +341,12 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
  - [Adrirobot](http://www.adrirobot.it/menu_new/index/index_parallax.htm)
 
 
-##<t id="usb_to_serial"/>USB to Serial Circuit
+## USB to Serial Circuit
 
 #### TODO
 
 
-##<t id="links"/> Links
+## Links
 
 - [LED Matrix display](http://www.instructables.com/id/Arduino-LED-Scrolling-Text-Simple-Easy/step3/Testing/)
 - [The Master's notes](http://electronics-notes.readthedocs.org/en/latest/)
