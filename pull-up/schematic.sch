@@ -808,9 +808,9 @@ Source: http://download.siliconexpert.com/pdfs/2005/02/24/Semi_Ap/2/VSH/Resistor
 <plain>
 </plain>
 <instances>
-<instance part="SUPPLY1" gate="GND" x="-7.62" y="43.18" rot="R270"/>
+<instance part="SUPPLY1" gate="GND" x="-2.54" y="43.18" rot="R270"/>
 <instance part="SUPPLY3" gate="G$1" x="25.4" y="66.04"/>
-<instance part="S1" gate="1" x="7.62" y="43.18" rot="R270"/>
+<instance part="S1" gate="1" x="12.7" y="43.18" rot="R270"/>
 <instance part="R1" gate="G$1" x="25.4" y="53.34" rot="R90"/>
 </instances>
 <busses>
@@ -820,17 +820,17 @@ Source: http://download.siliconexpert.com/pdfs/2005/02/24/Semi_Ap/2/VSH/Resistor
 <segment>
 <pinref part="SUPPLY1" gate="GND" pin="GND"/>
 <pinref part="S1" gate="1" pin="P"/>
-<wire x1="-5.08" y1="43.18" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="0" y1="43.18" x2="7.62" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="INPUT_PIN" class="0">
 <segment>
 <pinref part="S1" gate="1" pin="S"/>
-<wire x1="12.7" y1="43.18" x2="25.4" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="43.18" x2="25.4" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="25.4" y1="43.18" x2="45.72" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="43.18" x2="33.02" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="48.26" x2="25.4" y2="43.18" width="0.1524" layer="91"/>
-<label x="43.18" y="45.72" size="1.778" layer="95" rot="R180"/>
+<label x="33.02" y="43.18" size="1.778" layer="95" rot="MR180" xref="yes"/>
 </segment>
 </net>
 <net name="VCC" class="0">
