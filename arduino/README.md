@@ -3,6 +3,7 @@
 Arduino is an open-source electronic prototyping platform made using an ATMega microcontroller. The most popular version is the Arduino Uno that mount an ATMega328p. The difference between Arduino and a standalone AVR is the bootloader that allow us to easy develop using the Arduino IDE. Is possible to burn the bootloader into a standalone ATMega328p (and others devices ) using an AVR programmer (ISP).
 
 - [Arduino on breadboard (ATMega328p)](#breadboard328p)
+- [Arduino on breadboard (ATMega32a)](#breadboard32a)
 - [Links](#links)
 
 
@@ -74,6 +75,7 @@ Now, is possible to burn the bootloader; the compiled files are available on the
 ###### Arduino as ISP:
 `avrdude -P PORT -b 19200 -c avrisp -p m328p -v -e -U flash:w:BOOTLOADER.hex -U lock:w:0x0F:m`
 
+##<t id="breadboard328p"/> Arduino on breadboard (ATMega32a)
 
 ##<t id="links"/> Links
  - [Il manuale di Arduino](http://www.prometheusnow.com/blog/wp-content/uploads/2014/11/Il-manuale-di-Arduino-Maik-Schmidt.pdf)
