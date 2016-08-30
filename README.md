@@ -10,10 +10,12 @@ A collection of simple and basic circuits.
  - [LED Circuit](#led-circuit)
  - [Capacitors Circuit](#capacitors-circuit)
  - [Button Circuit](#button-circuit)
- - [LED Indicator Circuit](#led-indicator-circuit)
 
 ###### Utilities circuits
 
+ - [LED Indicator Circuit](#led-indicator-circuit)
+ - [RC Circuits](#rc-circuits)
+ - [Bypass and Decoupling](#bypass-and-decoupling)
  - [Power Circuit](#power-circuit)
  - [Switch Circuit](#switch-circuit)
  - [Digital Logic Circuits](#digital-logic-circuits)
@@ -107,7 +109,52 @@ In general, the formul is:
 
 ## Capacitors Circuit
 
-### Code
+###### Capacitance
+
+**Q = CV** o **V = Q/C** o **C = Q/V**
+
+###### Capacitors in parallel:
+
+**C<sub>tot</sub> = C<sub>1</sub> + C<sub>2</sub> + C<sub>3</sub> ... + C<sub>n</sub>**
+
+
+###### Capacitors in series:
+
+**C<sub>tot</sub> = 1 / (1/C<sub>1</sub> + 1/C<sub>2</sub> + 1/C<sub>3</sub> ... + 1/C<sub>n</sub>)**
+
+**V<sub>i</sub> = Q/C<sub>i</sub>**
+
+
+![Capacitors Circuit](capacitors/schematic.png)
+
+###### Ex.:
+
+ - *C<sub>1</sub> = 10nF*
+ - *C<sub>2</sub> = 50nF*
+ - *C<sub>3</sub> = 20nF*
+ - *V<sub>cc</sub> = 12V*
+
+The total capacitance of the circuit is **C<sub>tot</sub> = 1 / (1/C<sub>1</sub> + 1/C<sub>2-3</sub>) = 1 / (1/10 + 1/70) = 8.75nF** where **C<sub>2-3</sub> = C<sub>1</sub> + C<sub>2</sub> = 50 + 20 = 70nF**
+
+The total electric charge is **Q<sub>tot</sub> = C<sub>tot</sub> * V<sub>cc</sub> = 8.75\*10<sup>-9</sup> * 12 = 105nQ**
+
+The voltage between *A* and *B* is **V<sub>A-B</sub> = Q / C<sub>1</sub> = 105 / 10 = 10.5V**
+
+The voltage between *B* and *C* is **V<sub>B-C</sub> = Q / C<sub>2-3</sub> = 105 / 70 = 1.5V**
+
+So, **V = V<sub>A-B</sub> + V<sub>B-C</sub> = 10.5 + 1.5 = 12.1V**
+
+
+##### LED Circuit
+
+This is a simple circuit with a capacitor:
+
+![Led and Capacitor](capacitors/led_capacitor.png)
+
+When we push the button, the current flows in the circuit and the LED lights up; this current also flow in the capacitor and charge his plates. When we release the button, the current stop to flows from power supply but flows out of the capacitor, so the LED still lights until the capacitor will discharged.
+
+
+### Capacitors Code
 
 The code over the capacitors indicate their capacitance, using this table you can find the value:
 
@@ -154,15 +201,6 @@ If there is a number after the tollerance, it represents the voltage (ex. **.33K
 Normally, on the electrolytic capacitors, there are the capacitance and the max voltage wrote in the clear form.
 
 
-#### TODO
-
- - parallel and series
- - bypass and decoupling
- - charge
- - discarge
- - oscilloscope
- - RC and filters
-
 ### Links
  - [Eagle project](capacitors/)
  
@@ -186,6 +224,62 @@ This is possible because a LED is a diode, so it allow the current flow only fro
 
 ### Links
  - [Eagle project](led_indicator/)
+
+
+## RC Circuits
+
+An RC circuit is made by a resistor and a capacitor.
+
+![Simplest RC Circuit](rc_circuits/rc.png)
+
+This is the simplest RC circuit. When we push the button, the capacitor will charge.
+
+When we release the button, the circuit is short-circuited and the capacitor will discharge.
+
+![Charging and Discharging ](http://i.stack.imgur.com/l3iBb.gif)
+
+The total charging/discharged times is **T = R * C** (ex. *4.5kΩ \* 1000uF = 4,7s*).
+
+### Filters
+
+The RC circuits can be used to filter a signal in frequncy. The cutoff frequency can be determined by the time constant:
+
+**f<sub>c</sub> = 1 / (2πRC)**
+
+
+###### Ex.:
+
+ - *C<sub>1</sub> = 10nF*
+ - *R<sub>1</sub> = 220ohm*
+
+The cutoff frequency is **f<sub>c</sub> = 1 / (2πRC) = 1 / (2π * 1000 * 10\*10<sup>-9</sup>) = 15.91kHz**.
+
+
+###### Passive Low-pass filter
+
+![Passive Low-pass filter](rc_circuits/passive_low_pass.png)
+
+A low-pass filter is a filter that cut the frequencies higher than the cutoff frequency.
+
+
+###### Passive High-pass filter
+
+![Passive High-pass filter](rc_circuits/passive_high_pass.png)
+
+A high-pass filter is a filter that cut the frequencies lower than the cutoff frequency.
+
+
+### Links
+ - [Eagle projects](rc_circuits/)
+
+
+## Bypass and Decoupling
+
+### TODO
+
+
+### Links
+ - [Eagle projects](bypass_and_decoupling/)
 
 
 ## Power Circuit
