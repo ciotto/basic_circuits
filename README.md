@@ -15,7 +15,7 @@ A collection of simple and basic circuits.
 
  - [LED Indicator Circuit](#led-indicator-circuit)
  - [RC Circuits](#rc-circuits)
- - [Bypass and Decoupling](#bypass-and-decoupling)
+ - [Coupling and Decoupling](#coupling-and-decoupling)
  - [Power Circuit](#power-circuit)
  - [Switch Circuit](#switch-circuit)
  - [Digital Logic Circuits](#digital-logic-circuits)
@@ -273,13 +273,21 @@ A high-pass filter is a filter that cut the frequencies lower than the cutoff fr
  - [Eagle projects](rc_circuits/)
 
 
-## Bypass and Decoupling
+## Coupling and Decoupling
 
-### TODO
+In electronic, the capacitors are very used for their property of blocking constant currents and let passing the variable currents.
+
+![Decoupling](coupling_and_decoupling/decoupling.png)
+
+A **decoupling** capacitor (also called **bypass** capacitor) is used for join two part of the circuit far and prevent variation of the voltage (nois). When there is an high peak of curren, the capacitor absorb it; vice-versa, when there is an low peak of curren, the capacitor release the electric charge. A decoupling capacitor is usually placed near of the *IC*'s power pins.
+
+![Coupling](coupling_and_decoupling/coupling.png)
+
+A **coupling** capacitor (also called **DC-blocking** capacitor) is used for separate two part of circuit and prevent passing of *DC* current, so only the *AC* signal from the first circuit can pass through to the next.
 
 
 ### Links
- - [Eagle projects](bypass_and_decoupling/)
+ - [Eagle projects](coupling_and_decoupling/)
 
 
 ## Power Circuit
