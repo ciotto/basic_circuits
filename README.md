@@ -9,7 +9,6 @@ A collection of simple and basic circuits.
  - [Resistors Circuit](#resistors-circuit)
  - [LED Circuit](#led-circuit)
  - [Capacitors Circuit](#capacitors-circuit)
- - [Button Circuit](#button-circuit)
 
 ###### Utilities circuits
 
@@ -22,6 +21,7 @@ A collection of simple and basic circuits.
  - [H-Bridge Circuits](#h-bridge-circuit)
  - [Diode Bridge Circuit](#diode-bridge-circuit)
  - [Pull-up/pull-down Resistor Circuit](#pull-uppull-down-resistor-circuit)
+ - [Debouncing Circuit](#debouncing-circuit)
  - [Level up/down Circuit (Amplifier)](#level-updown-circuit-amplifier)
 
 ###### Advanced circuits
@@ -203,13 +203,6 @@ Normally, on the electrolytic capacitors, there are the capacitance and the max 
 
 ### Links
  - [Eagle project](capacitors/)
- 
-
-## Button Circuit
-
-#### TODO
-
- - oscilloscope
 
 
 ## LED Indicator Circuit
@@ -411,6 +404,26 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 ## Pull-up/pull-down Resistor Circuit
 
 #### TODO
+ 
+
+## Debouncing Circuit
+
+A debouncing circuit is a simple circuit used for connect a *push button* to a *MCU*.
+
+![Debouncing Circuit](debouncing_circuit/schematic.png)
+
+Apart from the *pull-up resistor*, there are also a decoupling capacitor that prevent the signal bouncing when we press the button.
+
+Without this capacitor, when we press the button and read the value on the input pin of the *MCU*, we will read an unstable level.
+
+![Bouncing Graph](http://4.bp.blogspot.com/-D54pwXmYcKc/VGYiY4uSwYI/AAAAAAAAAd4/DhiZXnGNgf4/s1600/debouce-graph.png)
+
+Is also possible preventing bouncing by software using *debounce delay*.
+
+### Links
+
+ - [Debouncing Circuit](debouncing_circuit/)
+ - [Arduino Software Debouncing](https://www.arduino.cc/en/Tutorial/Debounce)
 
 
 ## Level up/down Circuit (Amplifier)
