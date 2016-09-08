@@ -6,12 +6,13 @@ A collection of simple and basic circuits.
 
 ###### Base circuits
 
- - [Resistors Circuit](#resistors-circuit)
- - [LED Circuit](#led-circuit)
- - [Capacitors Circuit](#capacitors-circuit)
+ - [Resistors Circuits](#resistors-circuits)
+ - [LED Circuits](#led-circuits)
+ - [Capacitors Circuits](#capacitors-circuits)
 
 ###### Utilities circuits
 
+ - [Voltage Divider Circuit](#voltage-divider-circuit)
  - [LED Indicator Circuit](#led-indicator-circuit)
  - [RC Circuits](#rc-circuits)
  - [Coupling and Decoupling](#coupling-and-decoupling)
@@ -20,7 +21,7 @@ A collection of simple and basic circuits.
  - [Digital Logic Circuits](#digital-logic-circuits)
  - [H-Bridge Circuits](#h-bridge-circuit)
  - [Diode Bridge Circuit](#diode-bridge-circuit)
- - [Pull-up/pull-down Resistor Circuit](#pull-uppull-down-resistor-circuit)
+ - [Pull-up/pull-down Resistor Circuits](#pull-uppull-down-resistor-circuits)
  - [Debouncing Circuit](#debouncing-circuit)
  - [Level up/down Circuit (Amplifier)](#level-updown-circuit-amplifier)
 
@@ -37,24 +38,20 @@ A collection of simple and basic circuits.
  - [Links](#links)
 
 
-## Resistors Circuit
+## Resistors Circuits
 
 ###### Resistor in parallel:
 
 **R<sub>tot</sub> = 1 / (1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub> ... + 1/R<sub>n</sub>)**
 
-
 ###### Resistor in series:
 
 **R<sub>tot</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> ... + R<sub>n</sub>**
 
-
 ###### First Ohms law:
 **I = V/R** or **V = RI** or **R = V/I**
 
-
 ![Resistors Circuit](resistors/schematic.png)
-
 
 ###### Ex.:
 
@@ -73,7 +70,6 @@ The voltage between *B* and *C* is **V<sub>B-C</sub> = R<sub>2-3</sub> \* I = 13
 
 So, **V = V<sub>A-B</sub> + V<sub>B-C</sub> = 5.5 + 6.6 = 12.1V**
 
-
 ### Resistors Color Code
 
 The colored bands over the resistors indicate their resistance, using this table you can find the value:
@@ -81,13 +77,13 @@ The colored bands over the resistors indicate their resistance, using this table
 ![Color Code Table](http://www.digikey.com/-/media/Images/Marketing/Resources/Calculators/resistor-color-chart.jpg?la=en-US&ts=72364a89-2139-476a-8a54-8d78dacd29ff)
 
 
-## LED Circuit
+## LED Circuits
 
 Is the smallest circut used to power a LED (Light Emitting Diode)
 
 ![LED Circuit](led/schematic.png)
 
-The *R1* resistor depends on the *V<sub>cc</sub>* voltage and on the LED type. For e *3mm LED* at *5 V<sub>DC</sub>*, for example, this are the rounded values:
+The *R<sub>1</sub>* resistor depends on the *V<sub>cc</sub>* voltage and on the LED type. For e *3mm LED* at *5 V<sub>DC</sub>*, for example, this are the rounded values:
 
 Size | Color  | Forward current | Foward voltage | Resistor 
 ---- | ------ | --------------- | -------------- | --------
@@ -107,7 +103,7 @@ In general, the formul is:
  - [LED Resistor Calculator](http://www.ohmslawcalculator.com/led-resistor-calculator)
 
 
-## Capacitors Circuit
+## Capacitors Circuits
 
 ###### Capacitance
 
@@ -117,13 +113,11 @@ In general, the formul is:
 
 **C<sub>tot</sub> = C<sub>1</sub> + C<sub>2</sub> + C<sub>3</sub> ... + C<sub>n</sub>**
 
-
 ###### Capacitors in series:
 
 **C<sub>tot</sub> = 1 / (1/C<sub>1</sub> + 1/C<sub>2</sub> + 1/C<sub>3</sub> ... + 1/C<sub>n</sub>)**
 
 **V<sub>i</sub> = Q/C<sub>i</sub>**
-
 
 ![Capacitors Circuit](capacitors/schematic.png)
 
@@ -143,7 +137,6 @@ The voltage between *A* and *B* is **V<sub>A-B</sub> = Q / C<sub>1</sub> = 105 /
 The voltage between *B* and *C* is **V<sub>B-C</sub> = Q / C<sub>2-3</sub> = 105 / 70 = 1.5V**
 
 So, **V = V<sub>A-B</sub> + V<sub>B-C</sub> = 10.5 + 1.5 = 12.1V**
-
 
 ##### LED Circuit
 
@@ -172,7 +165,7 @@ The code over the capacitors indicate their capacitance, using this table you ca
  xx  | 9 | 0.1
  xRx | / | 0.1
 
-In general, the first two digit are the value, the 3rd is the multiplier and the letter is for tollerance. The very small capacitors can have an **R** between the first and second digits, this means that there is a point (ex. *2R2 = 2.2pF*).
+In general, the first two digit are the value, the 3rd is the multiplier and the letter is for tollerance. The very small capacitors can have an **R** between the first and second digits, this means that there is a point (ex. *2R<sub>2</sub> = 2.2pF*).
 
 In other case, the value wrote above capacitor is in micro-farad (es. **.33**) or with specified multiplier (es. **330n**).
 
@@ -200,9 +193,30 @@ If there is a number after the tollerance, it represents the voltage (ex. **.33K
 
 Normally, on the electrolytic capacitors, there are the capacitance and the max voltage wrote in the clear form.
 
-
 ### Links
  - [Eagle project](capacitors/)
+
+
+## Voltage Divider Circuit
+
+Is possible to made a simple voltage divider using two resistance:
+
+![Voltage Divider](voltage_divider/schematic.png)
+
+**V<sub>out</sub> = (R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)) * V<sub>in</sub>**
+
+With a *voltage divider*, a certain amount of current is wasted; with biggest resistors we get smallest consumption.
+
+###### Ex.:
+
+ - *R<sub>1</sub> = 110ohm*
+ - *R<sub>2</sub> = 330ohm*
+ - *V<sub>cc</sub> = 12V*
+
+**V<sub>out</sub> = (R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)) * V<sub>in</sub> = (330 / (110 + 330)) * 12 = 9V**
+
+### Links
+ - [Eagle project](voltage_divider/)
 
 
 ## LED Indicator Circuit
@@ -239,7 +253,6 @@ The RC circuits can be used to filter a signal in frequncy. The cutoff frequency
 
 **f<sub>c</sub> = 1 / (2πRC)**
 
-
 ###### Ex.:
 
  - *C<sub>1</sub> = 10nF*
@@ -247,20 +260,17 @@ The RC circuits can be used to filter a signal in frequncy. The cutoff frequency
 
 The cutoff frequency is **f<sub>c</sub> = 1 / (2πRC) = 1 / (2π * 1000 * 10\*10<sup>-9</sup>) = 15.91kHz**.
 
-
 ###### Passive Low-pass filter
 
 ![Passive Low-pass filter](rc_circuits/passive_low_pass.png)
 
 A low-pass filter is a filter that cut the frequencies higher than the cutoff frequency.
 
-
 ###### Passive High-pass filter
 
 ![Passive High-pass filter](rc_circuits/passive_high_pass.png)
 
 A high-pass filter is a filter that cut the frequencies lower than the cutoff frequency.
-
 
 ### Links
  - [Eagle projects](rc_circuits/)
@@ -278,7 +288,6 @@ A **decoupling** capacitor (also called **bypass** capacitor) is used for join t
 
 A **coupling** capacitor (also called **DC-blocking** capacitor) is used for separate two part of circuit and prevent passing of *DC* current, so only the *AC* signal from the first circuit can pass through to the next.
 
-
 ### Links
  - [Eagle projects](coupling_and_decoupling/)
 
@@ -292,7 +301,7 @@ The standard **voltage regulator** is a component that allow us to get a normali
 In this circuit I added a **12V diode** in order to perform a simple reverse polarity and overvoltage protection.
 
 ### Links
- - [Diode Bridge Circuit](power/)
+ - [Eagle project](power/)
 
 
 ## Switch Circuit
@@ -311,7 +320,6 @@ The transistor is a semiconductor device very used in eletronic. They have two b
 
  - interrupt a signal (switch)
  - aplifing a signal
-
 
 #### Types
 
@@ -334,9 +342,8 @@ Conversely, on the **PNP** transistor (in the simbol arrow Point In) the main cu
 
 Is good to remember that the real electron flow is opposit of theoretical current flow.
 
-
 ### Links
-
+ - [Eagle project](transistor/)
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 
@@ -354,6 +361,7 @@ The last one represent a 2-input **OR** gate, if *A* or *B* are at *V<sub>CC</su
 
 ### Links
 
+ - [Eagle project](digital_logic/)
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
 
 
@@ -380,6 +388,7 @@ Usually, a *IC* (es. **L293**) is used instead a homemade H-bridge.
 
 ### Links
 
+ - [Eagle project](h-bridge/)
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors) 
 
 
@@ -398,12 +407,40 @@ The Diode Bridge is good to correct **Power Circuit** inverted polarity, but it 
 ![Diode Bridge Circuit](diode_bridge/schematic.png)
 
 ### Links
+ - [Eagle project](diode_bridge/)
  - [Diode Bridge Circuit](diode_bridge/)
 
 
-## Pull-up/pull-down Resistor Circuit
+## Pull-up/pull-down Resistor Circuits
 
-#### TODO
+A pull-up resistor (or pull-down) is a circuit that prevent the unknow state on input pin of a *MCU* when nothing is connected.
+
+Pull-ups and pull-downs are often used with buttons and switches.
+
+![Pull-up/pull-down Resistor Circuits](pull_up_down/schematic.png)
+
+In the pull-up circuit, when the button isn't pressed, a small ammount of current flows through the resistor to the *MCU*'s input pin, so the *MCU* read an **HIGH** state. When the button is pressed, the current flows through the resistor (and through *MCU*'s pin) to *GND* so the *MCU* read a **LOW** state.
+
+Pull-up and pull-down circuits are equals but pull-up connect pin to *V<sub>cc</sub>* and pull-down connect pin to *GND*.
+
+If there isn't a resistor when we press the button, circuit will put in "*short*".
+
+The value of the resistor is usually **10Kohm** but it depends to the *MCU* input pin impedance. For example, the *Arduino Uno*'s input pin inpedance is **100Mohm**, so:
+
+**I = V / R<sub>tot</sub> = 5 / (10\*10^3) = 0.0005A = 0.5mA**
+
+The current over the circuit is inversely proportional to the **R<sub>1</sub>** value, so if we increase **R<sub>1</sub>** the current consumpted in the quiet state will decrese, but **R<sub>1</sub>** and **R<sub>2</sub>** generate also a [voltage divider](#voltage-divider-circuit):
+
+**V<sub>out</sub> = (R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)) * V<sub>in</sub> = (100\*10^6 / (10\*10^3 + 100\*10^6)) * 5 = 4,99V**
+
+The *Arduino Uno*'s brown-out detection is *2.7V*, so if we use a a resistor of **100Mohm** for **R<sub>1</sub>**, the logic level on *Arduino Uno*'s input pin will be always *LOW*.
+
+**V<sub>out</sub> = (R<sub>2</sub> / (R<sub>1</sub> + R<sub>2</sub>)) * V<sub>in</sub> = (100\*10^6 / (100\*10^6 + 100\*10^6)) * 5 = 2,5V**
+
+### Links
+
+ - [Eagle project](pull_up_down/)
+ - [Sparkfun](https://learn.sparkfun.com/tutorials/pull-up-resistors)
  
 
 ## Debouncing Circuit
@@ -412,7 +449,7 @@ A debouncing circuit is a simple circuit used for connect a *push button* to a *
 
 ![Debouncing Circuit](debouncing_circuit/schematic.png)
 
-Apart from the *pull-up resistor*, there are also a decoupling capacitor that prevent the signal bouncing when we press the button.
+Apart from the [pull-up resistor](#pull-uppull-down-resistor-circuits), there are also a [decoupling capacitor](#coupling-and-decoupling) that prevent the signal bouncing when we press the button.
 
 Without this capacitor, when we press the button and read the value on the input pin of the *MCU*, we will read an unstable level.
 
@@ -422,7 +459,7 @@ Is also possible preventing bouncing by software using *debounce delay*.
 
 ### Links
 
- - [Debouncing Circuit](debouncing_circuit/)
+ - [Eagle project](debouncing_circuit/)
  - [Arduino Software Debouncing](https://www.arduino.cc/en/Tutorial/Debounce)
 
 
@@ -431,8 +468,9 @@ Is also possible preventing bouncing by software using *debounce delay*.
 #### TODO
 
 ### Links
-
+ - [Eagle project]()
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
+
 
 ## Oscillator Circuit
 
@@ -440,8 +478,10 @@ Is also possible preventing bouncing by software using *debounce delay*.
 
 ### Links
 
+ - [Eagle project]()
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/transistors)
  - [Shift Oscillator](http://www.circuitstoday.com/transistor-phase-shift-oscillator)
+
 
 ## RS232 to Serial Circuit
 
@@ -452,13 +492,16 @@ Is also possible preventing bouncing by software using *debounce delay*.
 ### With transistors
 
 ### Links
- - [RS232_to_serial](RS232_to_serial/)
+ - [Eagle project](RS232_to_serial/)
  - [Adrirobot](http://www.adrirobot.it/menu_new/index/index_parallax.htm)
 
 
 ## USB to Serial Circuit
 
 #### TODO
+
+### Links
+ - [Eagle project](usb_to_serial/)
 
 
 ## Links
