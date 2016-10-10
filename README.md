@@ -33,6 +33,10 @@ A collection of simple and basic circuits.
  - [Arduino](arduino/README.md)
  - [Devices UART](uart/README.md)
 
+###### Tools
+
+ - [BS-06 Bluetooth Module](#bs-06-bluetooth-module)
+
 ###### Other
 
  - [Links](#links)
@@ -503,6 +507,47 @@ Is also possible preventing bouncing by software using *debounce delay*.
 ### Links
  - [Eagle project](usb_to_serial/)
 
+## BS-06 Bluetooth Module
+
+The **BS-06** is a *slave only* module, so you can send command from other device to him but not vice versa.
+
+The **BS-06** work at **3.3V** but I used a module with a pass-through adapter and a voltage regulator, so i must use a **5V** power supply.
+
+For a test, we can connect a serial adapter to the module and then we can connect to the device with command:
+
+`sudo python -m serial.tools.miniterm /dev/tty.wchusbserial1410 9600 --eol LF`
+
+After this, we can send an AT command by copying and pasting on terminal.
+
+ COMMAND | RESPONSE | COMMENT 
+---------|----------|---------
+ AT | OK | Used to verify communication
+ AT+VERSION | OKlinvorV1.8 | The firmware version (version might depend on firmware) 
+ AT+NAMEaaa | OKsetname | Sets the module name to “aaa” 
+ AT+PIN1111 | OKsetPIN | Sets the module PIN to 1111 
+ AT+BAUD1 | OK1200 | Sets the baud rate to 1200 
+ AT+BAUD2 | OK2400 | Sets the baud rate to 2400 
+ AT+BAUD3 | OK4800 | Sets the baud rate to 4800 
+ AT+BAUD4 | OK9600 | Sets the baud rate to 9600 
+ AT+BAUD5 | OK19200 | Sets the baud rate to 19200 
+ AT+BAUD6 | OK38400 | Sets the baud rate to 38400 
+ AT+BAUD7 | OK57600 | Sets the baud rate to 57600 
+ AT+BAUD8 | OK115200 | Sets the baud rate to 115200 
+ AT+BAUD9 | OK230400 | Sets the baud rate to 230400 
+ AT+BAUDA | OK460800 | Sets the baud rate to 460800 
+ AT+BAUDB | OK921600 | Sets the baud rate to 921600 
+ AT+BAUDC | OK1382400 | Sets the baud rate to 1382400 
+
+If you send an ``AT`` message, the module response with an ``OK`` message.
+
+For a complete test, I used a *bluetooth terminal* app installed on my Android device, I connected the **BS-06** to the phone and I sent a message to the module.
+
+If you read your message on the computer terminal all works fine.
+
+### Links
+
+ - [Datasheet](https://www.rcscomponents.kiev.ua/datasheets/hc_hc-05-user-instructions-bluetooth.pdf)
+ - [Using the HC-06 Bluetooth Module](https://mcuoneclipse.com/2013/06/19/using-the-hc-06-bluetooth-module/)
 
 ## Links
 
