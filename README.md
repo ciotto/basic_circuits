@@ -4,6 +4,7 @@ A collection of simple and basic circuits.
 
 <t style="color: red">WARNING!!</t> This repo is a collection of note and tests, is not always trusted.
 
+
 ###### Base circuits
 
  - [Resistors Circuits](#resistors-circuits)
@@ -39,6 +40,7 @@ A collection of simple and basic circuits.
 
 ###### Other
 
+ - [Color Convention](#color-convention)
  - [Links](#links)
 
 
@@ -548,6 +550,23 @@ If you read your message on the computer terminal all works fine.
 
  - [Datasheet](https://www.rcscomponents.kiev.ua/datasheets/hc_hc-05-user-instructions-bluetooth.pdf)
  - [Using the HC-06 Bluetooth Module](https://mcuoneclipse.com/2013/06/19/using-the-hc-06-bluetooth-module/)
+
+
+## Color Convention
+
+ Name | Color | Note 
+------|-------|------
+ GND | black / *blue* | 
+ V<sub>cc</sub> | red | 
+ ||
+ RX | orange | 
+ TX | yellow | 
+ RESET | green | 
+ ||
+ MISO | white | 
+ MOSI | gray / *orange* | *orange* deprecated
+ SCK | brown | 
+ RESET | green / *gray* | *gray* deprecated
 
 ## Links
 
