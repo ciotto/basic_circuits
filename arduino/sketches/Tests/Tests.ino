@@ -2,7 +2,7 @@
   Modified version of Arduino Blink sketch.
  */
 
-const int PORT = 8;
+const int PORT = 13;
 int i = 0;
 
 // the setup function runs once when you press reset or power the board
@@ -28,4 +28,12 @@ void loop() {
   Serial.print("Loop ");
   Serial.println(i);
   i++;
+
+  // read from port 0, send an echo:
+  if (Serial.available()) {
+    for (int i; i < Serial.available(); i++) {
+      int inByte = Serial.read();
+      Serial.write(inByte);
+    }
+  }
 }
