@@ -38,6 +38,10 @@ A collection of simple and basic circuits.
 
  - [BS-06 Bluetooth Module](#bs-06-bluetooth-module)
 
+###### Reverse
+
+ - [Haier T32X](haier-t32x/README.md)
+
 ###### Other
 
  - [Color Convention](#color-convention)
@@ -480,7 +484,7 @@ Is also possible preventing bouncing by software using *debounce delay*.
 
 ## Oscillator Circuit
 
-####TODO
+#### TODO
 
 ### Links
 
@@ -508,6 +512,26 @@ Is also possible preventing bouncing by software using *debounce delay*.
 
 ### Links
  - [Eagle project](usb_to_serial/)
+
+## Basic Stamp 2
+
+ - [More info...](bs2/README.md)
+
+
+## Arduino
+
+ - [More info...](arduino/README.md)
+
+## Devices UART
+
+ - [More info...](uart/README.md)
+
+# Reverse
+
+## Haier T32X
+
+ - [More info...](haier-t32x/README.md)
+
 
 ## BS-06 Bluetooth Module
 
