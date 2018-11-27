@@ -1,6 +1,6 @@
 # Reverse the Haier T32X robot (Work in Progress)
 
-I'm trying to reverse engineering the Haier T325 Cleaning Robot. First of all I opened the plastic shell and I inspect the PCB:
+I'm trying to reverse engineering the **Haier T325** Cleaning Robot. First of all I opened the plastic shell and I inspect the PCB:
 
 ![Haier T325](images/haier-t325.jpg)
 
@@ -35,7 +35,7 @@ In order to ease the work, I dismounted the PCB from the robot and I found that 
 
 The unsoldered jumpers JP1 and JP2 seems interesting.
 
-So, first of all, I wanted to find GND and VDD pins on the STM32F103. GND reference was easy to find on button or battery connection, but for VDD I must finded the 3V3 regulator, so I have checked all main components of the board and I have searched their datasheet on internet:
+So, first of all, I wanted to find GND and VDD pins on the STM32F103. GND reference was easy to find on switch or battery connection, but for VDD I must finded the 3V3 regulator, so I checked all main components of the board and I have searched their datasheet on internet:
 
 Count | Name | Purpose
 ------|-----|------
@@ -58,7 +58,7 @@ I must inspect all pins and, for this purpose, I have unsoldered the control pan
 
 ![STM32F103 in LQFP100](images/STM32F103_LQFP100.jpg)
 
-At this time, I took sufficient data to find the SWD, USART1 and BOOT pins over the board:
+At this time, I took sufficient data to find the SWD, USART1 and BOOT pins over the board. This operation can be done using a multimeter and a lot of patience. Following the tracks of the PCB we can have an idea of the connections and then we can check it with the multimeter short circuit test. Be careful that the PCBs can many layers (usually 2, top and bottom) and that layers can be connected by VIAs (vertical interconnect access). Tracks and VIAs can be placed under other components.
 
 Jumper | Pin 1 | Pin 2 | Pin 3 | Pin 4
 -------|-------|-------|-------|-------
@@ -71,7 +71,7 @@ Good, when I have find all I need, I solder some cables for JP1, JP2, BOOT0 and 
 
 ![PCB top](images/top-final.jpg)
 
-## Ready to test!
+## Ready to test SWD!
 
 I done some tests using the *BusPirate* w/o succes, but with 9.99€ I can buy an *ST-Link V2* for the day after on [Amazon](https://www.amazon.it/gp/product/B077Z1T3LP/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1). I connected JP2 to the ST-link and ST-Link to may Mac.
 
@@ -224,5 +224,32 @@ determining executable automatically.  Try using the "file" command.
 (gdb) dump binary memory image.bin 0x08000000 0x08001000
 ```
 
+## Check the UART
 
+Unfortunately I get poor results with the **SWD** interface, so I start to inspect the **UART**.
 
+I attached my USB-to-Serial interface, I runned miniterm with most used baud rate and I reboot the board:
+
+```
+> python -m serial.tools.miniterm /dev/tty.usbserial-A50285BI 115200
+--- Miniterm on /dev/tty.usbserial-A50285BI  115200,8,N,1 ---
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+怆�����x<f<␀x␃̆�␀x␏���f<␆<������~<␀x␌���␘<��`?���␀x␀��␆<������~<␀x�φ�x<f<␀x␌�f<`?`?f<␘?␆␌��怘��␘0␆<␞?f<������f<␞0f?␘?␘?f<��`?␀x�x␀�␀�␆␏␘␏␘␏���␘0␆<`?`?f<␘?�␞␀x<�����`?␆<~<f<␀x�x␀�␆␏f␏�x<�
+```
+
+Well, something happened. After some try with other common used baud rate, I got the out put:
+
+```
+> python -m serial.tools.miniterm /dev/tty.usbserial-A50285BI 57600
+--- Miniterm on /dev/tty.usbserial-A50285BI  57600,8,N,1 ---
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+Ilife AI Cleaning Robot
+  Making life better!
+
+BaseLineCurrent = 0122
+Battery Voltage = 1596
+```
+
+When I tried to start the board with BOOT0 to 3V3 there was no output, so probably this confirm that the **Read Out protection** is setted to *Level 1* or *Level 2*.
+
+When I attached the charger, the robot logged ` Charge Start` over serial, but when I press buttons over IR remote or send command with the UART, nothing is happening.
