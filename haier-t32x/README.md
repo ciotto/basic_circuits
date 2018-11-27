@@ -92,8 +92,6 @@ openocd: "\x54\x3f\x6e\x06\x49\x66\x50\x56\x29\x66\x06\x67"
 
 **BOOM!!** It works!
 
-The device was recognised but, unfortunately, when I tried to dump the firmware, the image file was empty.
-
 ```
 > st-flash read image.bin 0x8000000 1024
 st-flash 1.5.1
@@ -101,6 +99,38 @@ st-flash 1.5.1
 2018-11-25T21:33:33 INFO common.c: Device connected is: F1 Medium-density device, id 0x20036410
 2018-11-25T21:33:33 INFO common.c: SRAM size: 0x5000 bytes (20 KiB), Flash: 0 bytes (0 KiB) in pages of 1024 bytes
 ```
+
+The device was recognised but, unfortunately, when I tried to dump the firmware, the image file was empty.
+
+This probably means that the MCU have some type of protection enabled.
+
+#### Disable Debug
+
+When debug is disabled still possible to dump the firmware and, after this, we can modify it and reflash, unfortunately this does not seem to be my problem because I can't dump the firmware.
+
+#### Read Out protection
+
+STM32 support 3 protection levels:
+
+  - **Level 0**: no read protection
+
+    This essentially means that there aren't protection, but can still that Disable Debug was enabled.
+
+  - **Level 1**: memory read protection enabled
+    
+    If a debug access is detected or boot is not set to flash memory area a system fault is generated. Mass-erase is allowed.
+    
+  - **Level 2**: memory read protection enabled and all debug features disabled.
+
+    All protections provided by *Level 1*, but JTAG/SWD are disabled and chip can't be resetted.
+
+Probably the Read Out protection is setted to *Level 1* because i can use SWD but I can't dump the firmware. In ther [PentestHardware](https://github.com/unprovable/PentestHardware) manual there are some usefull ideas for bypass this protection, but for now i try to inspect the **UART**.
+
+#### Links
+
+  - [stlink issue](https://github.com/texane/stlink/issues/545)
+  - [Read Out protection](https://www.st.com/content/ccc/resource/training/technical/product_training/group0/f5/5e/87/93/f5/d7/45/85/STM32F7_Security_Memories_Protections/files/STM32F7_Security_Memories_Protections.pdf/_jcr_content/translations/en.STM32F7_Security_Memories_Protections.pdf)
+
 
 ### openocd
 
