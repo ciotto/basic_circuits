@@ -6,6 +6,19 @@ I'm trying to reverse engineering the **Haier T325** Cleaning Robot. First of al
 
 After the inspection, I found the MCU, it is an [STM32F103](https://www.st.com/resource/en/datasheet/cd00161566.pdf) VBT6 in LQFP100 package, unfortunatly, the MCU is under the screen/touch panel. I don't have any experiences with this MCU, but after Googling I founded a lot of information and seems very commons. There are also many [prototype boards](https://it.aliexpress.com/item/1-pices-STM32F103C8T6-BRACCIO-STM32-Minimi-di-Sistema-Scheda-di-Sviluppo-Modulo-di-Rilevamento-di-Valutazione/32883012819.html?spm=a2g0s.13010208.99999999.275.71fe3c00kLsRht).
 
+[Wikipadia](https://en.wikipedia.org/wiki/STM32#STM32_L1) help me to get some information about the STM32:
+
+`STM32 F1 03 V B T6`
+
+`STM32 xx ww y z`
+
+  - xx - Family
+  - ww - subtype: differs in equipment of peripherals and this depend on certain family
+  - y - Package pin count
+  - z - FLASH memory size
+ 
+So, the F1 family use a CortexM3 core with 192kB flash.
+
 In the datasheet I have find the pinout schema and some interesting pins:
 
 Pin | Port
@@ -134,6 +147,8 @@ Probably the Read Out protection is setted to *Level 1* because i can use SWD bu
 
 ### openocd
 
+I also tried using **OpenOCD**, first of all I runned the server:
+
 ```
 > openocd -f haier-t32x.cfg
 Open On-Chip Debugger 0.10.0
@@ -153,7 +168,7 @@ Info : Target voltage: 3.516645
 Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
 
-In other terminal:
+And, in other terminal, I opened a connection using telnet:
 
 ```
 > telnet localhost 4444
@@ -173,32 +188,7 @@ flash 'stm32f1x' found at 0x08000000
 > 
 ```
 
-#### Links
-
-  - [Getting started with OpenOCD](http://techwithdave.davevw.com/2013/07/getting-started-with-openocd.html)
-
-### gdb
-
-```
-> openocd -f haier-t32x.cfg
-Open On-Chip Debugger 0.10.0
-Licensed under GNU GPL v2
-For bug reports, read
-	http://openocd.org/doc/doxygen/bugs.html
-Info : The selected transport took over low-level target control. The results might differ compared to plain JTAG/SWD
-adapter speed: 1000 kHz
-adapter_nsrst_delay: 100
-none separate
-Info : Unable to match requested speed 1000 kHz, using 950 kHz
-Info : Unable to match requested speed 1000 kHz, using 950 kHz
-Info : clock speed 950 kHz
-Info : STLINK v2 JTAG v17 API v2 SWIM v4 VID 0x0483 PID 0x3748
-Info : using stlink api v2
-Info : Target voltage: 3.516645
-Info : stm32f1x.cpu: hardware has 6 breakpoints, 4 watchpoints
-```
-
-In other terminal:
+Is also possible to use GDB:
 
 ```
 > ./arm-none-eabi-gdb
@@ -223,6 +213,10 @@ determining executable automatically.  Try using the "file" command.
 0x0800018c in ?? ()
 (gdb) dump binary memory image.bin 0x08000000 0x08001000
 ```
+
+#### Links
+
+  - [Getting started with OpenOCD](http://techwithdave.davevw.com/2013/07/getting-started-with-openocd.html)
 
 ## Check the UART
 
@@ -253,3 +247,88 @@ Battery Voltage = 1596
 When I tried to start the board with BOOT0 to 3V3 there was no output, so probably this confirm that the **Read Out protection** is setted to *Level 1* or *Level 2*.
 
 When I attached the charger, the robot logged ` Charge Start` over serial, but when I press buttons over IR remote or send command with the UART, nothing is happening.
+
+## Try to bypass the Readout Protection
+
+The Master (aka [Gipi](https://github.com/gipi)) shared with me a link about [dumping ARM Cortex-M0 firmware](http://blog.includesecurity.com/2015/11/NordicSemi-ARM-SoC-Firmware-dumping-technique.html) through the MCU's registers, the STM32 F1 subserie use a ARM Cortex-M3 core but in theory can work.
+
+The idea is to use the debugger in order to single-step the execution of code, I can't see the code, but code must to be executed and some operation require to read the memory into a register.
+
+Find this operation require some try, we can set all the registers to 0x0, do some a step until a register change and retry this line with all the registers set to 0x4. If the value in the register is different and the delta is not 4, we probably finded an operation tha read the memory. The confirm can be reached using this command to read itself and than we can disassembles it. 
+
+So, let's try to single-step the code execution:
+
+```
+> reset halt
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x0800018c msp: 0x20000728
+> step
+target halted due to single-step, current mode: Handler HardFault
+xPSR: 0x01000003 pc: 0x08002264 msp: 0x20000708
+halted: PC: 0x08002264
+> reg
+===== arm v7m registers
+(0) r0 (/32): 0x20000007
+(1) r1 (/32): 0x00000002
+(2) r2 (/32): 0x00000040
+(3) r3 (/32): 0x04000000
+(4) r4 (/32): 0x20000005
+(5) r5 (/32): 0x40011000
+(6) r6 (/32): 0x40010000
+(7) r7 (/32): 0x00000000
+(8) r8 (/32): 0x000003E8
+(9) r9 (/32): 0x20000005
+(10) r10 (/32): 0x000003E8
+(11) r11 (/32): 0x00000000
+(12) r12 (/32): 0x20000104
+(13) sp (/32): 0x20000708
+(14) lr (/32): 0xFFFFFFF9
+(15) pc (/32): 0x08002264
+(16) xPSR (/32): 0x01000003
+(17) msp (/32): 0x20000708
+(18) psp (/32): 0xCEEBC0F0
+(19) primask (/1): 0x00
+(20) basepri (/8): 0x00
+(21) faultmask (/1): 0x00
+(22) control (/2): 0x00
+===== Cortex-M DWT registers
+(23) dwt_ctrl (/32)
+(24) dwt_cyccnt (/32)
+(25) dwt_0_comp (/32)
+(26) dwt_0_mask (/4)
+(27) dwt_0_function (/32)
+(28) dwt_1_comp (/32)
+(29) dwt_1_mask (/4)
+(30) dwt_1_function (/32)
+(31) dwt_2_comp (/32)
+(32) dwt_2_mask (/4)
+(33) dwt_2_function (/32)
+(34) dwt_3_comp (/32)
+(35) dwt_3_mask (/4)
+(36) dwt_3_function (/32)
+> 
+```
+
+Ok, well but not very well, I can do reset and halt, I can read registers but when I do a single-step the execution fall in Handler HardFault.
+
+However, I tried to write a [Python script](scripts/firmware_dump.py) that automatically search a valid operation. This script set PC register to a specific address, reset general purpose registers and single-step the operation, after this check the changes on the registers.
+
+```
+> python scripts/firmware_dump.py search -a 0x0800018c
+Search command..
+Try with address 0x8000250
+Skip sum operation
+Try with address 0x800025a
+Skip sum operation
+...
+Try with address 0x8009138
+Skip sum operation
+Try with address 0x805289e
+```
+
+I run my script from the reset address but after a lot of time I found nothing, so probably this solution doesn't work in my case.
+
+### Links
+
+  - [Shedding too much Light on a Microcontroller’s Firmware Protection](https://www.usenix.org/system/files/conference/woot17/woot17-paper-obermaier.pdf)
+  - [Hardware Security](https://low-level.readthedocs.io/en/latest/security/hardware/)
