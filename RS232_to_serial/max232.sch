@@ -12507,6 +12507,7 @@ Source: www.kingbright.com</description>
 <sheets>
 <sheet>
 <plain>
+<text x="17.78" y="15.24" size="5.08" layer="97">v1.1</text>
 </plain>
 <instances>
 <instance part="SUPPLY1" gate="GND" x="129.54" y="53.34"/>
@@ -12556,8 +12557,8 @@ Source: www.kingbright.com</description>
 <attribute name="RTS" x="2.54" y="40.64" size="1.778" layer="96" rot="R180" align="top-left" display="name"/>
 <attribute name="T2OUT" x="17.78" y="43.18" size="1.778" layer="96" display="name"/>
 </instance>
-<instance part="SUPPLY3" gate="G$1" x="132.08" y="38.1" rot="R270"/>
-<instance part="SUPPLY4" gate="GND" x="99.06" y="17.78" rot="R270"/>
+<instance part="SUPPLY3" gate="G$1" x="99.06" y="17.78" rot="R90"/>
+<instance part="SUPPLY4" gate="GND" x="132.08" y="38.1" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -12661,9 +12662,9 @@ Source: www.kingbright.com</description>
 <wire x1="22.86" y1="81.28" x2="20.32" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="PWR" gate="G$1" pin="C"/>
 <pinref part="SUPPLY4" gate="GND" pin="GND"/>
-<wire x1="104.14" y1="17.78" x2="101.6" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="129.54" y1="38.1" x2="127" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -12679,9 +12680,9 @@ Source: www.kingbright.com</description>
 <wire x1="22.86" y1="91.44" x2="20.32" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R1" gate="G$1" pin="2"/>
+<pinref part="PWR" gate="G$1" pin="C"/>
 <pinref part="SUPPLY3" gate="G$1" pin="VCC"/>
-<wire x1="127" y1="38.1" x2="129.54" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="17.78" x2="101.6" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="TXD" class="0">
@@ -12836,6 +12837,16 @@ Source: www.kingbright.com</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="113,1,-20.32,70.0081,X1,,,,,"/>
+<approved hash="113,1,133.838,65.8453,SV2,,,,,"/>
+<approved hash="113,1,107.95,37.7783,RXD,,,,,"/>
+<approved hash="113,1,107.95,27.6183,TXD,,,,,"/>
+<approved hash="113,1,107.95,58.0983,R2,,,,,"/>
+<approved hash="113,1,107.95,47.9383,RST,,,,,"/>
+<approved hash="113,1,107.95,17.4583,PWR,,,,,"/>
+<approved hash="113,1,11.7131,43.3747,SV1,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
