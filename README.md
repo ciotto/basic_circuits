@@ -37,6 +37,7 @@ A collection of simple and basic circuits.
 ###### Tools
 
  - [BS-06 Bluetooth Module](#bs-06-bluetooth-module)
+ - [ESP8266 Module](#esp8266-module)
 
 ###### Other
 
@@ -551,6 +552,24 @@ If you read your message on the computer terminal all works fine.
  - [Datasheet](https://www.rcscomponents.kiev.ua/datasheets/hc_hc-05-user-instructions-bluetooth.pdf)
  - [Using the HC-06 Bluetooth Module](https://mcuoneclipse.com/2013/06/19/using-the-hc-06-bluetooth-module/)
 
+
+## ESP8266 Module
+
+The **ESP8266** is a small, low-cost WiFi module with a basic firmware that enable you (or your Arduino) to send and receive data over WiFi. 
+
+There are many **ESP8266** modul versions:
+
+![ESP8266 family](https://iotbytes.files.wordpress.com/2016/03/esp8266_family3.png?w=616)
+
+For my tests, I use an **ESP-12e**.
+
+The good think of the ESP8266 
+
+
+### Links
+
+ - [Datasheet](http://www.kloppenborg.net/images/blog/esp8266/esp8266-esp12e-specs.pdf)
+ - [CaprerAVR](https://github.com/ciotto/CaprerAVR)
 
 ## Color Convention
 
