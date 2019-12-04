@@ -34,6 +34,10 @@ A collection of simple and basic circuits.
  - [Arduino](arduino/README.md)
  - [Devices UART](uart/README.md)
 
+###### Shields
+
+ - [Servo Shield](#servo-shield)
+
 ###### Tools
 
  - [BS-06 Bluetooth Module](#bs-06-bluetooth-module)
@@ -508,6 +512,18 @@ Is also possible preventing bouncing by software using *debounce delay*.
 
 ### Links
  - [Eagle project](usb_to_serial/)
+
+
+## Servo Shield
+
+I try to use a *2 Motor && 16 Servo Driver Board* by **DOIT**.
+
+This board use an I<sub>2</sub>C interface in order to drive 16 PWM servos.
+
+### Links
+
+ - [The Shield](http://www.smartarduino.com/view.php?id=94895)
+
 
 ## BS-06 Bluetooth Module
 
